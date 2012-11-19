@@ -11,6 +11,7 @@
 * Fallback to `/usr/share/ec2debian-build-ami` when tasks dir is not found
 * Disable the grub boot menu and respect some config vars in /etc/default/grub
 * List operations have been refactored (tasks, known_regions)
+* Prevent two tasks from having the same basename
 
 #### Bugfixes: ####
 * Fixed an issue where the bootstrapper would halt if a task ended in an if statement that failed
