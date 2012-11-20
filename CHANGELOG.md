@@ -2,6 +2,7 @@
 
 #### Major changes: ####
 * ext4 is now the default filesystem
+* Implemented support for additional tasks based on the debian version codename
 
 #### Minor changes: ####
 * `wget` is installed per default on debian, use that instead
