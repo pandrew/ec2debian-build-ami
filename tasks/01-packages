@@ -21,7 +21,8 @@ exclude_packages+=('isc-dhcp-common')
 
 # euca2ools dependencies
 host_packages+=('build-essential')
-host_packages+=('python-boto')
+host_packages+=('python-pip')
+#host_packages+=('python-boto')
 host_packages+=('python-m2crypto')
 
 # We will need to format the volume, so we need xfsprogs
