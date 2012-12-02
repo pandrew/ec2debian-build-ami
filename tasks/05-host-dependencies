@@ -4,20 +4,27 @@
 apt-get install -y ${host_packages[*]} | spin
 [ $PIPESTATUS == 0 ] || die "Installing host packages failed!"
 
+# We need boto for this and current version installed with pip should work.
+pip install boto | spin
+[ $PIPESTATUS == 0 ] || die "Installing boto failed!"
+
+
+
 # We use euca2ools to communicate with AWS
 # The package in squeeze is v 1.2, which does not support EBS images
-# So we install 1.3 from source instead
+# So we install 1.3.. no make that current from github.
 if [ ! -d $scriptdir/euca2ools ]; then
-	wget -qO $scriptdir/euca2ools-1.3.2.tar.gz https://github.com/eucalyptus/euca2ools/archive/1.3.2.tar.gz
-	tar zxf $scriptdir/euca2ools-1.3.2.tar.gz
+    git clone git://github.com/eucalyptus/euca2ools.git $scriptdir/euca2ools
 fi
 
 function install_euca2ools {
 	# We want to fail if make fails, so don't start a subshell with ()
 	# Remember the old dir
 	local orig_pwd=$(pwd)
-	cd euca2ools-1.3.2
-	make | spin
+	cd euca2ools
+    # And install using python
+	python setup.py build
+    python setup.py install
 	[ $PIPESTATUS == 0 ] || die "Bootstrapping failed!"
 	cd $orig_pwd
 }
