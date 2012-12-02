@@ -5,7 +5,7 @@ apt-get install -y ${host_packages[*]} | spin
 [ $PIPESTATUS == 0 ] || die "Installing host packages failed!"
 
 # We need boto for this and current version installed with pip should work.
-pip install boto | spin
+pip install --upgrade boto | spin
 [ $PIPESTATUS == 0 ] || die "Installing boto failed!"
 
 
