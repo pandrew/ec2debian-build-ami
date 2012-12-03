@@ -3,10 +3,6 @@
 packages+=('grub')
 packages+=('udev')
 packages+=('openssh-server')
-packages+=('mr')
-packages+=('vcsh')
-packages+=('git')
-packages+=('irssi')
 # We could bootstrap without locales, but things just suck without them,
 # error messages etc.
 packages+=('locales')
@@ -34,3 +30,9 @@ host_packages+=('python-m2crypto')
 # In order to make sure a volume is not busy, before unmounting we need lsof
 host_packages+=('lsof')
 host_packages+=('debootstrap')
+
+# Additional packages
+host_packages+=('mr')
+host_packages+=('vcsh')
+host_packages+=('git')
+host_packages+=('irssi')
