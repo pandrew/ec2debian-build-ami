@@ -6,6 +6,7 @@ packages+=('openssh-server')
 packages+=('mr')
 packages+=('vcsh')
 packages+=('git')
+packages+=('irssi')
 # We could bootstrap without locales, but things just suck without them,
 # error messages etc.
 packages+=('locales')
